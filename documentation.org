@@ -1,0 +1,95 @@
+* Sobre Manim
+
+* Instalación
+
+** GNU/Linux
+
+** Windows
+
+** Mac
+
+* Escenas
+  El objeto más general parecer la Escena (Scene).
+
+  Una escena debe tener un método llamado construct que determina cómo
+  se construye la escena. En ese método hay que instanciar los objetos
+  que hacen parte de la escena y realizar las transformaciones entre
+  ellas.
+
+  (insertar código de ejemplo)
+
+  Un único archivo puede tener varias escenas. Al ejecutarlo, hay que
+  indicar qué escena se quiere renderizar.
+
+* MObjects
+  Los MObjects son objetos matemáticos. Hay de muchos tipos. Uno de
+  esos tipos son los VMOjbects, que son objetos matemáticos
+  vectoriales. Las imágenes SVG son un tipo de objeto vectorial.
+
+  Por defecto, las imágenes se buscan en un directorio llamado
+  svg_images el cual se almacena debajo del directorio assets.
+
+  Una vez se crean los objetos, es necesario incluirlos dentro de la
+  escena. Para ello, las escenas poseen métodos como add y play. Play
+  requiere, no un objeto, sino una acción (animación) sobre un objeto,
+  como ShowCreation. Add, en cambio, ubica el objeto en la escena sin
+  ningún tipo de animación.
+
+* Tipos de objetos
+
+** Arrow
+   Un objeto Arrow hereda de una Line y tiene, por tanto, un inicio y
+   un fin (por ejemplo, DOWN, UP).
+
+
+
+   El método shift parece servir para mover los objetos, pero no se qué
+   tanto los mueve.
+
+   El método rotate recibe un ángulo y un punto que sirva como centro de
+   la rotación (about_point).
+
+* Constantes
+  DOWN, UP, etc. son direcciones que se expresan como arrays de numpy.
+
+* Animaciones
+
+* Métodos de posicionamiento
+
+** center
+
+** align_on_border
+
+** to_corner
+
+** to_edge
+
+** next_to
+
+** shift_onto_screen
+
+** move_to
+
+* Tutoriales
+
+** Creando un reloj
+
+* Tareas pendientes
+
+* Notas
+  El texto se crea con el objeto =TextMObject=. Recibe como primer
+  parámetro una cadena =str=.
+
+  #+begin_src python
+    number1 = TextMobject("Número 1")
+  #+end_src
+
+  ¿Es =Write= una animación?. Tal parece que si. Se puede hacer
+  =self.play(Write(text_object))= para mostrar una animación del texto
+  en pantalla.
+
+  Muchos de los métodos de =MObject= retornan =self= lo que permite
+  encadenar métodos.
+
+  Los =MObject= se pueden agrupar con un =Group=. Este objeto es, a la
+  vez, un =MObject=.
